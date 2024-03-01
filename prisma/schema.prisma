@@ -14,7 +14,9 @@ datasource db {
 }
 
 model Poll {
-  id       Int      @id @default(autoincrement())
+  id       String   @id @default(uuid())
   question String
   options  String[]
+
+  createAt DateTime @default(now())
 }
