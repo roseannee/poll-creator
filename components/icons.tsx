@@ -1,4 +1,5 @@
 import {
+  Copy,
   Loader2,
   LucideProps,
   Moon,
@@ -14,6 +15,7 @@ export const Icons = {
   delete: X,
   add: Plus,
   loader: Loader2,
+  copy: Copy,
   sun: SunMedium,
   moon: Moon,
   logo: (props: LucideProps) => (
