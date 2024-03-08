@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { CreateForm } from "@/components/poll-forms/create-form"
+import { CreatePollForm } from "@/components/create-poll-form"
 
 export default function CreatePage() {
   return (
@@ -18,7 +18,7 @@ export default function CreatePage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <CreateForm />
+          <CreatePollForm />
         </CardContent>
       </Card>
     </section>

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/prisma/client"
 
-import { PollSchema } from "@/lib/poll-shema"
+import { PollSchema } from "@/lib/definitions"
 
 function sleep(time: number) {
   return new Promise((resolve) => {
@@ -17,7 +17,9 @@ export async function POST(request: NextRequest) {
     const result = await prisma.poll.create({
       data: {
         question,
-        options,
+        options: {
+          create: options.map((option) => ({ option })),
+        },
       },
     })
 
