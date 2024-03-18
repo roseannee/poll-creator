@@ -1,21 +1,28 @@
 import Link from "next/link"
 
+import { cn } from "@/lib/utils"
+
 import { buttonVariants } from "./ui/button"
 
 interface CreatePollButtonProps {
   children: React.ReactNode
-  isHeader?: boolean
+  variant?: string
 }
 
 export function CreatePollButton({
   children,
-  isHeader = false,
+  variant = "outline",
 }: CreatePollButtonProps) {
   return (
     <Link
       href="/create"
       rel="noreferrer"
-      className={buttonVariants({ variant: isHeader ? "ghost" : "outline" })}
+      className={cn(
+        "min-w-max",
+        buttonVariants({
+          variant: variant as keyof typeof buttonVariants,
+        })
+      )}
     >
       {children}
     </Link>
