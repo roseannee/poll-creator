@@ -1,4 +1,5 @@
 import "@/styles/globals.css"
+
 import { Metadata, Viewport } from "next"
 import { GeistSans } from "geist/font/sans"
 
@@ -38,7 +39,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <html lang="en" suppressHydrationWarning>
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "min-h-screen overflow-x-hidden bg-background font-sans antialiased",
             GeistSans.variable
           )}
         >

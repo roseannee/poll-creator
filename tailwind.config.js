@@ -13,6 +13,9 @@ module.exports = {
       },
     },
     extend: {
+      spacing: {
+        'screen-with-header': 'calc(100vh - 65px)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
