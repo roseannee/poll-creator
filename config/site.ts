@@ -9,6 +9,10 @@ export const siteConfig = {
       title: "Create a poll",
       href: "/create",
     },
+    {
+      title: "Search for polls",
+      href: "/search",
+    },
   ],
   links: {
     twitter: "https://twitter.com/shadcn",
