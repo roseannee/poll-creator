@@ -7,6 +7,12 @@ import { Option } from "@prisma/client"
 import { useAtom } from "jotai"
 
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 export function SelectionOptions({ options }: { options: Option[] }) {
   const router = useRouter()
@@ -44,18 +50,27 @@ export function SelectionOptions({ options }: { options: Option[] }) {
   }
 
   return (
-    <ToggleGroup
-      type="single"
-      size="lg"
-      value={option}
-      onValueChange={handleValueChange}
-      className="flex flex-col"
-    >
-      {options.map(({ option, id }) => (
-        <ToggleGroupItem key={id} value={option} className="w-full">
-          {option}
-        </ToggleGroupItem>
-      ))}
-    </ToggleGroup>
+    <TooltipProvider>
+      <ToggleGroup
+        type="single"
+        size="lg"
+        value={option}
+        onValueChange={handleValueChange}
+        className="flex flex-col"
+      >
+        {options.map(({ option, id }) => (
+          <Tooltip key={id}>
+            <TooltipTrigger asChild>
+              <ToggleGroupItem value={option} className="w-full truncate">
+                {option}
+              </ToggleGroupItem>
+            </TooltipTrigger>
+            <TooltipContent className="w-full max-w-lg">
+              {option}
+            </TooltipContent>
+          </Tooltip>
+        ))}
+      </ToggleGroup>
+    </TooltipProvider>
   )
 }
