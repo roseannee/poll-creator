@@ -1,0 +1,60 @@
+"use client"
+
+import { Option, Vote } from "@prisma/client"
+
+import { Icons } from "./icons"
+import Typography from "./typography"
+import { Progress } from "./ui/progress"
+
+interface VoteResultsProps {
+  options: Option[]
+  votes: Vote[]
+}
+
+export function VoteResults({ options, votes }: VoteResultsProps) {
+  const totalVotesCount = votes.length
+
+  const optionVoteCounts: Record<number, number> = {}
+  for (const vote of votes) {
+    optionVoteCounts[vote.optionId] = (optionVoteCounts[vote.optionId] || 0) + 1
+  }
+
+  const maxVoteCount = Math.max(...Object.values(optionVoteCounts))
+
+  const mostVotedOptionIds = Object.keys(optionVoteCounts).filter(
+    (optionId) => optionVoteCounts[Number(optionId)] === maxVoteCount
+  )
+
+  return (
+    <div className="flex flex-col space-y-4">
+      {options.map((option) => {
+        const voteCount = optionVoteCounts[option.id] || 0
+        const votePercentage =
+          totalVotesCount > 0 ? (voteCount / totalVotesCount) * 100 : 0
+        const isMostVoted =
+          mostVotedOptionIds.includes(String(option.id)) && voteCount > 0
+
+        return (
+          <div key={option.id} className="flex flex-col space-y-1">
+            <div className="flex flex-1 items-center justify-between">
+              <Typography className="text-balance">{option.option}</Typography>
+
+              <Typography
+                affects={"removePMargin"}
+                className="flex font-semibold"
+              >
+                {isMostVoted && mostVotedOptionIds.length === 1 && (
+                  <Icons.party className="mr-2 text-amber-500" />
+                )}
+
+                {totalVotesCount > 0 ? `${votePercentage.toFixed(0)}%` : `0%`}
+              </Typography>
+            </div>
+
+            <Progress value={votePercentage} />
+          </div>
+        )
+      })}
+    </div>
+  )
+}
