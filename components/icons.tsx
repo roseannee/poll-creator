@@ -1,9 +1,12 @@
 import {
   Copy,
+  Ellipsis,
   Loader2,
   LucideProps,
   Moon,
+  PartyPopper,
   Plus,
+  Search,
   SunMedium,
   X,
   type LucideIcon,
@@ -16,6 +19,9 @@ export const Icons = {
   add: Plus,
   loader: Loader2,
   copy: Copy,
+  party: PartyPopper,
+  search: Search,
+  ellipsis: Ellipsis,
   sun: SunMedium,
   moon: Moon,
   logo: (props: LucideProps) => (
