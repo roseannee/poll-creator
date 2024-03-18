@@ -11,13 +11,16 @@ import {
 } from "@/components/ui/card"
 import { CopyToClipboard } from "@/components/copy-to-clipboard"
 import { CreatePollButton } from "@/components/create-poll-button"
+import { Icons } from "@/components/icons"
 
 export default function SharePage({ params }: { params: { id: string } }) {
   return (
-    <section className="container flex min-h-[calc(100vh-65px)] flex-col items-center justify-center space-y-8 pb-8 pt-6 md:py-10">
-      <Card className="max-w-md">
+    <section className="container flex min-h-screen-with-header flex-col items-center justify-center space-y-8 pb-8 pt-6 md:py-10">
+      <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle>Created 🎉</CardTitle>
+          <CardTitle className="flex">
+            Created <Icons.party className="ml-2 text-amber-500" />
+          </CardTitle>
           <CardDescription>
             Your survey has been successfully created. Copy the link below to
             share it.
