@@ -20,7 +20,7 @@ export function TableActions({ pollId }: { pollId: string }) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
-          <Icons.ellipsis className="size-5" />
+          <Icons.ellipsis />
         </Button>
       </DropdownMenuTrigger>
 
@@ -30,6 +30,12 @@ export function TableActions({ pollId }: { pollId: string }) {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
+          <DropdownMenuItem asChild>
+            <Link href={`/${pollId}/share`} className="cursor-pointer">
+              Share
+            </Link>
+          </DropdownMenuItem>
+
           <DropdownMenuItem asChild>
             <Link href={`/${pollId}/vote`} className="cursor-pointer">
               Vote
