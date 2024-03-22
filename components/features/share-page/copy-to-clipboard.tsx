@@ -1,10 +1,10 @@
 "use client"
 
-import { Icons } from "./icons"
-import { Button } from "./ui/button"
-import { Input } from "./ui/input"
-import { Toaster } from "./ui/toaster"
-import { useToast } from "./ui/use-toast"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Toaster } from "@/components/ui/toaster"
+import { useToast } from "@/components/ui/use-toast"
+import { Icons } from "@/components/shared/icons"
 
 export function CopyToClipboard({ pollId }: { pollId: string }) {
   const pollLink = `https://poll-creator/${pollId}/vote`

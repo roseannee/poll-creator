@@ -10,9 +10,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { CopyToClipboard } from "@/components/copy-to-clipboard"
-import { CreatePollButton } from "@/components/create-poll-button"
-import { Icons } from "@/components/icons"
+import { CopyToClipboard } from "@/components/features/share-page/copy-to-clipboard"
+import { CreatePollButton } from "@/components/shared/create-poll-button"
+import { Icons } from "@/components/shared/icons"
 
 export default function SharePage({ params }: { params: { id: string } }) {
   return (

@@ -11,8 +11,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { CreatePollButton } from "@/components/create-poll-button"
-import { VoteResults } from "@/components/vote-results"
+import { VoteResults } from "@/components/features/result-page/vote-results"
+import { CreatePollButton } from "@/components/shared/create-poll-button"
 
 export default async function ResultPage({
   params,

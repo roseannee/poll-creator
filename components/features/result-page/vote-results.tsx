@@ -1,12 +1,11 @@
 "use client"
 
 import { Option, Vote } from "@prisma/client"
+import { Progress } from "@radix-ui/react-progress"
 
 import { cn } from "@/lib/utils"
-
-import { Icons } from "./icons"
-import Typography from "./typography"
-import { Progress } from "./ui/progress"
+import { Icons } from "@/components/shared/icons"
+import Typography from "@/components/typography"
 
 interface VoteResultsProps {
   options: Option[]

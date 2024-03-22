@@ -5,9 +5,9 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { sendingVoteAtom } from "@/store"
 import { useAtom } from "jotai"
 
-import { LoadingButton } from "./loading-button"
-import { Toaster } from "./ui/toaster"
-import { useToast } from "./ui/use-toast"
+import { Toaster } from "@/components/ui/toaster"
+import { useToast } from "@/components/ui/use-toast"
+import { LoadingButton } from "@/components/shared/loading-button"
 
 export function SendChoiceButton({ pollId }: { pollId: string }) {
   const router = useRouter()

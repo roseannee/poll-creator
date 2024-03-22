@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 
+import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetContent,
@@ -9,9 +10,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { Icons } from "@/components/shared/icons"
 
-import { Icons } from "../icons"
-import { Button } from "../ui/button"
 import { NavProps } from "./nav-desktop"
 import { NavList } from "./nav-list"
 

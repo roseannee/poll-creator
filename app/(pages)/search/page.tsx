@@ -1,12 +1,12 @@
 import { Suspense } from "react"
 
 import { fetchPollsPages } from "@/lib/data"
-import { CreatePollButton } from "@/components/create-poll-button"
-import { Icons } from "@/components/icons"
-import { PollsTable } from "@/components/search-table/polls-table"
-import { Search } from "@/components/search-table/search"
-import { TablePagination } from "@/components/search-table/table-pagination"
-import { TableSkeleton } from "@/components/search-table/table-skeleton"
+import { PollsTable } from "@/components/features/search-page/polls-table"
+import { Search } from "@/components/features/search-page/search"
+import { TablePagination } from "@/components/features/search-page/table-pagination"
+import { TableSkeleton } from "@/components/features/search-page/table-skeleton"
+import { CreatePollButton } from "@/components/shared/create-poll-button"
+import { Icons } from "@/components/shared/icons"
 
 export default async function SearchPage({
   searchParams,

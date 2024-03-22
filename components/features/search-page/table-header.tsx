@@ -1,6 +1,6 @@
 import { TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
-export function PollsTableHeader() {
+export function MyTableHeader() {
   return (
     <TableHeader>
       <TableRow>

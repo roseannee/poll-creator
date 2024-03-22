@@ -3,9 +3,9 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useDebouncedCallback } from "use-debounce"
 
-import { Icons } from "../icons"
-import { Input } from "../ui/input"
-import { Label } from "../ui/label"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Icons } from "@/components/shared/icons"
 
 export function Search() {
   const searchParams = useSearchParams()

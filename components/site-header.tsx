@@ -2,8 +2,8 @@ import { siteConfig } from "@/config/site"
 import { NavDesktop } from "@/components/navigation/nav-desktop"
 import { ThemeToggle } from "@/components/theme-toggle"
 
-import { CreatePollButton } from "./create-poll-button"
 import { NavMobile } from "./navigation/nav-mobile"
+import { CreatePollButton } from "./shared/create-poll-button"
 
 export function SiteHeader() {
   return (

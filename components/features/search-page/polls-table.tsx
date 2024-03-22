@@ -1,9 +1,9 @@
 import { fetchFilteredPolls } from "@/lib/data"
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
 
-import { PollsTableHeader } from "./polls-table-header"
 import { TableActions } from "./table-actions"
 import { TableBadge } from "./table-badge"
+import { MyTableHeader } from "./table-header"
 
 export async function PollsTable({
   query,
@@ -16,7 +16,7 @@ export async function PollsTable({
 
   return (
     <Table className="min-h-96">
-      <PollsTableHeader />
+      <MyTableHeader />
 
       <TableBody>
         {polls.map(({ id, question, _count }) => (

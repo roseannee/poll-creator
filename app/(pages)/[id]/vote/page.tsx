@@ -7,8 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { SelectionOptions } from "@/components/selection-options"
-import { SendChoiceButton } from "@/components/send-choice-button"
+import { SelectionOptions } from "@/components/features/vote-page/selection-options"
+import { SendChoiceButton } from "@/components/features/vote-page/send-choice-button"
 
 export default async function VotePage({ params }: { params: { id: string } }) {
   const poll = await fetchPollById(params.id)

@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { CreatePollForm } from "@/components/create-poll-form"
+import { CreatePollForm } from "@/components/features/create-page/create-poll-form"
 
 export default function CreatePage() {
   return (

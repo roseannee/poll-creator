@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,9 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-
-import { Icons } from "../icons"
-import { Button } from "../ui/button"
+import { Icons } from "@/components/shared/icons"
 
 export function TableActions({ pollId }: { pollId: string }) {
   return (

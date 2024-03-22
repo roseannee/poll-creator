@@ -9,6 +9,7 @@ import { z } from "zod"
 
 import { PollSchema } from "@/lib/definitions"
 import { item } from "@/lib/framer-variants"
+import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
@@ -17,14 +18,12 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { Toaster } from "@/components/ui/toaster"
 import { useToast } from "@/components/ui/use-toast"
-
-import { Icons } from "./icons"
-import { LoadingButton } from "./loading-button"
-import Typography from "./typography"
-import { Button } from "./ui/button"
-import { Input } from "./ui/input"
-import { Toaster } from "./ui/toaster"
+import { Icons } from "@/components/shared/icons"
+import { LoadingButton } from "@/components/shared/loading-button"
+import Typography from "@/components/typography"
 
 const MFormItem = m(FormItem)
 
