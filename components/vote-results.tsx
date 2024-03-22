@@ -2,6 +2,8 @@
 
 import { Option, Vote } from "@prisma/client"
 
+import { cn } from "@/lib/utils"
+
 import { Icons } from "./icons"
 import Typography from "./typography"
 import { Progress } from "./ui/progress"
@@ -15,9 +17,9 @@ export function VoteResults({ options, votes }: VoteResultsProps) {
   const totalVotesCount = votes.length
 
   const optionVoteCounts: Record<number, number> = {}
-  for (const vote of votes) {
+  votes.forEach((vote) => {
     optionVoteCounts[vote.optionId] = (optionVoteCounts[vote.optionId] || 0) + 1
-  }
+  })
 
   const maxVoteCount = Math.max(...Object.values(optionVoteCounts))
 
@@ -39,22 +41,58 @@ export function VoteResults({ options, votes }: VoteResultsProps) {
             <div className="flex flex-1 items-center justify-between">
               <Typography className="text-balance">{option.option}</Typography>
 
-              <Typography
-                affects={"removePMargin"}
-                className="flex font-semibold"
-              >
-                {isMostVoted && mostVotedOptionIds.length === 1 && (
-                  <Icons.party className="mr-2 text-amber-500" />
-                )}
-
-                {totalVotesCount > 0 ? `${votePercentage.toFixed(0)}%` : `0%`}
-              </Typography>
+              <VotePercentage
+                isMostVoted={isMostVoted}
+                mostVotedOptionIds={mostVotedOptionIds}
+                totalVotesCount={totalVotesCount}
+                votePercentage={votePercentage}
+              />
             </div>
 
-            <Progress value={votePercentage} />
+            <div className="flex items-center space-x-2">
+              <Progress value={votePercentage} />
+
+              <VotePercentage
+                isMostVoted={isMostVoted}
+                mostVotedOptionIds={mostVotedOptionIds}
+                totalVotesCount={totalVotesCount}
+                votePercentage={votePercentage}
+                isMobile
+              />
+            </div>
           </div>
         )
       })}
     </div>
+  )
+}
+
+function VotePercentage({
+  isMostVoted,
+  mostVotedOptionIds,
+  totalVotesCount,
+  votePercentage,
+  isMobile = false,
+}: {
+  isMostVoted: boolean
+  mostVotedOptionIds: string[]
+  totalVotesCount: number
+  votePercentage: number
+  isMobile?: boolean
+}) {
+  return (
+    <Typography
+      affects={"removePMargin"}
+      className={cn(
+        "items-center font-semibold",
+        isMobile ? "flex md:hidden" : "hidden md:flex"
+      )}
+    >
+      {isMostVoted && mostVotedOptionIds.length === 1 && (
+        <Icons.party className="mr-2 text-amber-500" />
+      )}
+
+      {totalVotesCount > 0 ? `${votePercentage.toFixed(0)}%` : `0%`}
+    </Typography>
   )
 }
