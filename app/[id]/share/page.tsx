@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import {
   Card,
@@ -15,13 +16,13 @@ import { Icons } from "@/components/icons"
 
 export default function SharePage({ params }: { params: { id: string } }) {
   return (
-    <section className="container flex min-h-screen-with-header flex-col items-center justify-center space-y-8 pb-8 pt-6 md:py-10">
+    <section className="container flex min-h-screen-with-header flex-col items-center justify-center space-y-8 py-4 md:py-10">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="flex">
+          <CardTitle className="flex items-center">
             Created <Icons.party className="ml-2 text-amber-500" />
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-balance">
             Your survey has been successfully created. Copy the link below to
             share it.
           </CardDescription>
@@ -29,11 +30,11 @@ export default function SharePage({ params }: { params: { id: string } }) {
         <CardContent>
           <CopyToClipboard pollId={params.id} />
         </CardContent>
-        <CardFooter className="justify-center">
+        <CardFooter>
           <Link
             href={`/${params.id}/vote`}
             rel="noreferrer"
-            className={buttonVariants()}
+            className={cn("w-full", buttonVariants())}
           >
             Open poll
           </Link>

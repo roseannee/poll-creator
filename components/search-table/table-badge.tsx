@@ -9,7 +9,7 @@ export function TableBadge({
 }) {
   return (
     <Badge variant="secondary">
-      {count} {item}s
+      {count} <span className="ml-1 hidden md:inline"> {item}s</span>
     </Badge>
   )
 }

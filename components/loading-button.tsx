@@ -9,7 +9,7 @@ export function LoadingButton({ isLoading, ...props }: LoadingButtonProps) {
     <Button className="w-full" {...props}>
       {isLoading ? (
         <>
-          <Icons.loader className="mr-2 size-4 animate-spin" />
+          <Icons.loader className="mr-2 animate-spin" />
           Please wait...
         </>
       ) : (

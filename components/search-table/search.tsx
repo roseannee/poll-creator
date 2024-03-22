@@ -38,7 +38,7 @@ export function Search() {
         defaultValue={searchParams.get("query")?.toString()}
       />
 
-      <Icons.search className="absolute left-3 top-1/2 size-[18px] -translate-y-1/2" />
+      <Icons.search className="absolute left-3 top-1/2 -translate-y-1/2" />
     </div>
   )
 }

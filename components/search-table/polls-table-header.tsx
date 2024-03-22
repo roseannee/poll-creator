@@ -4,7 +4,7 @@ export function PollsTableHeader() {
   return (
     <TableHeader>
       <TableRow>
-        <TableHead className="w-[500px]">Question</TableHead>
+        <TableHead className="min-w-[300px]">Question</TableHead>
         <TableHead>Options amount</TableHead>
         <TableHead>Votes amount</TableHead>
         <TableHead className="text-right">Actions</TableHead>

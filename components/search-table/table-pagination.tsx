@@ -41,7 +41,7 @@ export function TablePagination({ totalPages }: { totalPages: number }) {
         </PaginationItem>
 
         {allPages.map((page, index) => (
-          <PaginationItem key={index}>
+          <PaginationItem key={index} className="hidden md:block">
             {page === "..." ? (
               <PaginationEllipsis />
             ) : (

@@ -22,7 +22,7 @@ export default async function ResultPage({
   const poll = await fetchPollByIdWithVotes(params.id)
 
   return (
-    <section className="container flex min-h-screen-with-header flex-col items-center justify-center space-y-8 pb-8 pt-6 md:py-10">
+    <section className="container flex min-h-screen-with-header flex-col items-center justify-center space-y-8 py-4 md:py-10">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardDescription>The question of this poll is:</CardDescription>
@@ -35,7 +35,7 @@ export default async function ResultPage({
           <Link
             href={`/${params.id}/vote`}
             rel="noreferrer"
-            className={cn("w-full", buttonVariants())}
+            className={cn("w-full", buttonVariants({ variant: "secondary" }))}
           >
             Cast your vote
           </Link>
