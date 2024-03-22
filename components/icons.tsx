@@ -3,6 +3,7 @@ import {
   Ellipsis,
   Loader2,
   LucideProps,
+  Menu,
   Moon,
   PartyPopper,
   Plus,
@@ -15,15 +16,16 @@ import {
 export type Icon = LucideIcon
 
 export const Icons = {
-  delete: X,
-  add: Plus,
-  loader: Loader2,
-  copy: Copy,
-  party: PartyPopper,
-  search: Search,
-  ellipsis: Ellipsis,
-  sun: SunMedium,
-  moon: Moon,
+  delete: (props: LucideProps) => <X size={20} {...props} />,
+  add: (props: LucideProps) => <Plus size={20} {...props} />,
+  loader: (props: LucideProps) => <Loader2 size={20} {...props} />,
+  copy: (props: LucideProps) => <Copy size={20} {...props} />,
+  party: (props: LucideProps) => <PartyPopper size={20} {...props} />,
+  search: (props: LucideProps) => <Search size={20} {...props} />,
+  ellipsis: (props: LucideProps) => <Ellipsis size={20} {...props} />,
+  menu: (props: LucideProps) => <Menu size={20} {...props} />,
+  sun: (props: LucideProps) => <SunMedium size={20} {...props} />,
+  moon: (props: LucideProps) => <Moon size={20} {...props} />,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path
