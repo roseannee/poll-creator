@@ -22,12 +22,12 @@ export default async function SearchPage({
   const totalPages = await fetchPollsPages(query)
 
   return (
-    <section className="container flex min-h-screen-with-header flex-col justify-between pb-8 pt-6 md:py-10">
+    <section className="container flex min-h-screen-with-header flex-col justify-between py-4 md:py-10">
       <div className="flex space-x-2">
         <Search />
 
-        <CreatePollButton variant="default">
-          Create poll {<Icons.add className="ml-2 size-5" />}
+        <CreatePollButton replaceMobileWithIcon variant="default">
+          Create poll {<Icons.add className="ml-2" />}
         </CreatePollButton>
       </div>
 
