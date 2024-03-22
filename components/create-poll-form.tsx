@@ -3,10 +3,12 @@
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { AnimatePresence, m } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import { PollSchema } from "@/lib/definitions"
+import { item } from "@/lib/framer-variants"
 import {
   Form,
   FormControl,
@@ -23,6 +25,8 @@ import Typography from "./typography"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Toaster } from "./ui/toaster"
+
+const MFormItem = m(FormItem)
 
 const MIN_OPTIONS = 2
 const MAX_OPTIONS = 5
@@ -46,13 +50,22 @@ export function CreatePollForm() {
   const { watch, setValue, handleSubmit, control, reset } = form
   const watchedOptions = watch("options")
 
-  const handleAddOption = () => {
+  const handleAddOption = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault()
+
     if (watchedOptions.length < MAX_OPTIONS) {
       setValue("options", [...watchedOptions, ""])
     }
   }
 
-  const handleRemoveOption = (indexToRemove: number) => {
+  const handleRemoveOption = (
+    indexToRemove: number,
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault()
+
     if (watchedOptions.length > MIN_OPTIONS) {
       setValue(
         "options",
@@ -108,44 +121,56 @@ export function CreatePollForm() {
           <div className="flex flex-col space-y-2">
             <FormLabel>Enter options to choose:</FormLabel>
 
-            {watchedOptions.map((_, index) => (
-              <FormField
-                key={index}
-                control={control}
-                name={`options.${index}`}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <div className="flex space-x-2">
-                        <Input placeholder={`option ${index + 1}`} {...field} />
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          onPointerDown={() => handleRemoveOption(index)}
-                          disabled={watchedOptions.length <= 2}
-                        >
-                          <Icons.delete className="size-5" />
-                        </Button>
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            ))}
+            <AnimatePresence initial={false}>
+              {watchedOptions.map((_, index) => (
+                <FormField
+                  key={index}
+                  control={control}
+                  name={`options.${index}`}
+                  render={({ field }) => (
+                    <MFormItem
+                      initial={"hidden"}
+                      animate={"visible"}
+                      exit={"exit"}
+                      variants={item}
+                    >
+                      <FormControl>
+                        <div className="flex space-x-1 md:space-x-2">
+                          <Input
+                            placeholder={`option ${index + 1}`}
+                            {...field}
+                          />
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            onClick={(event) =>
+                              handleRemoveOption(index, event)
+                            }
+                            disabled={watchedOptions.length <= 2}
+                          >
+                            <Icons.delete />
+                          </Button>
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </MFormItem>
+                  )}
+                />
+              ))}
+            </AnimatePresence>
           </div>
 
           <Button
             variant="outline"
             className="!mt-4"
-            onPointerDown={() => handleAddOption()}
+            onClick={(event) => handleAddOption(event)}
             disabled={watchedOptions.length >= 5}
           >
-            <Icons.add className="mr-2 size-5" />
+            <Icons.add className="mr-2" />
             Add new option
           </Button>
 
-          <Typography affects="lead" className="text-center">
+          <Typography affects="lead" className="text-balance text-center">
             {`There have been `}
             <span className="font-bold text-primary">
               {watchedOptions.length} options
