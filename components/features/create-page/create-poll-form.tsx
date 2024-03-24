@@ -59,6 +59,7 @@ export function CreatePollForm() {
     }
   }
 
+  // TODO update animation
   const handleRemoveOption = (
     indexToRemove: number,
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>

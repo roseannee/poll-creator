@@ -9,6 +9,7 @@ import { CreatePollForm } from "@/components/features/create-page/create-poll-fo
 
 export default function CreatePage() {
   return (
+    // TODO maybe 'flex min-h-screen-with-header items-center'
     <section className="container py-4 md:py-10">
       <Card className="mx-auto w-full max-w-md">
         <CardHeader>

@@ -5,6 +5,7 @@ import { TableActions } from "./table-actions"
 import { TableBadge } from "./table-badge"
 import { MyTableHeader } from "./table-header"
 
+// TODO add not found message
 export async function PollsTable({
   query,
   currentPage,
