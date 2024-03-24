@@ -1,17 +1,17 @@
 import { z } from "zod"
 
-// TODO uniqunes + validation
 export const PollSchema = z.object({
-  question: z.string().min(1, {
+  question: z.string().refine((value) => value.trim().length > 0, {
     message: "Question is required.",
   }),
   options: z
-    .array(
-      z.string().min(1, {
-        message: "Option is required.",
-      })
+  .array(
+    z.string().refine((value) => value.trim().length > 0, {
+      message: "Option is required.",
+    })
     )
-    .refine((items) => new Set(items).size === items.length, {
+    // TODO show an error
+    .refine((items) => new Set(items.map((item) => item.trim())).size === items.length, {
       message: "Must be an array of unique strings",
     }),
 })
