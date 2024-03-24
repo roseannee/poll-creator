@@ -7,7 +7,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/shared/icons"
 
 export function CopyToClipboard({ pollId }: { pollId: string }) {
-  const pollLink = `https://poll-creator/${pollId}/vote`
+  const pollLink = `https://poll-creator-puce.vercel.app/${pollId}/vote`
 
   const { toast } = useToast()
 
