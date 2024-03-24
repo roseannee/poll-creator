@@ -1,7 +1,7 @@
 "use client"
 
 import { Option, Vote } from "@prisma/client"
-import { Progress } from "@radix-ui/react-progress"
+import { Progress } from "@/components/ui/progress"
 
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/shared/icons"
