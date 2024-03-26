@@ -1,3 +1,4 @@
+import { unstable_noStore as noStore } from "next/cache"
 import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/prisma/client"
 
@@ -10,6 +11,8 @@ function sleep(time: number) {
 }
 
 export async function POST(request: NextRequest) {
+  noStore()
+
   try {
     const body = await request.json()
     const { question, options } = PollSchema.parse(body)
