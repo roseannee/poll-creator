@@ -1,12 +1,11 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next.js",
-  description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+  name: "Poll creator",
+  description: "Effortlessly create, share, vote, and track poll results.",
   mainNav: [
     {
-      title: "Create a poll",
+      title: "Create poll",
       href: "/create",
     },
     {
@@ -14,9 +13,4 @@ export const siteConfig = {
       href: "/search",
     },
   ],
-  links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
-  },
 }
