@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
 
@@ -15,6 +18,8 @@ export function NavList({
   isMobile = false,
   onLinkClick,
 }: NavListProps) {
+  const currentPath = usePathname()
+
   return items?.length ? (
     <nav
       className={cn(
@@ -28,7 +33,10 @@ export function NavList({
               key={index}
               href={item.href}
               className={cn(
-                "flex items-center text-sm font-medium text-muted-foreground",
+                "flex items-center text-sm font-medium",
+                currentPath === item.href
+                  ? "text-foreground"
+                  : "text-muted-foreground",
                 item.disabled && "cursor-not-allowed opacity-80"
               )}
               onClick={isMobile ? onLinkClick : undefined}
@@ -39,6 +47,6 @@ export function NavList({
       )}
     </nav>
   ) : isMobile ? (
-    <Typography affects={"muted"}>Nothing to show...</Typography>
+    <Typography affects="muted">Nothing to show...</Typography>
   ) : null
 }
