@@ -95,7 +95,6 @@ export function CreatePollForm() {
         description: `There was a problem with your request: ${error}`,
       })
     } finally {
-      reset()
       setIsLoading(false)
     }
   }
@@ -109,9 +108,12 @@ export function CreatePollForm() {
             name="question"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Enter the question to discuss:</FormLabel>
+                <FormLabel>Ask your question here:</FormLabel>
                 <FormControl>
-                  <Input placeholder="ex. What color is the sky?" {...field} />
+                  <Input
+                    placeholder="e.g., What's your favorite movie?"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -119,7 +121,7 @@ export function CreatePollForm() {
           />
 
           <div className="flex flex-col space-y-2">
-            <FormLabel>Enter options to choose:</FormLabel>
+            <FormLabel>Enter answer options here:</FormLabel>
 
             <AnimatePresence initial={false}>
               {watchedOptions.map((_, index) => (
@@ -129,9 +131,9 @@ export function CreatePollForm() {
                   name={`options.${index}`}
                   render={({ field }) => (
                     <MFormItem
-                      initial={"hidden"}
-                      animate={"visible"}
-                      exit={"exit"}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
                       variants={item}
                     >
                       <FormControl>
@@ -167,15 +169,15 @@ export function CreatePollForm() {
             disabled={watchedOptions.length >= 5}
           >
             <Icons.add className="mr-2" />
-            Add new option
+            Add option
           </Button>
 
           <Typography affects="lead" className="text-balance text-center">
-            {`There have been `}
+            {"There have been "}
             <span className="font-bold text-primary">
               {watchedOptions.length} options
             </span>
-            {` added`}
+            {" added."}
           </Typography>
 
           <LoadingButton
@@ -183,7 +185,7 @@ export function CreatePollForm() {
             disabled={isLoading}
             isLoading={isLoading}
           >
-            Save the poll
+            Create poll
           </LoadingButton>
         </form>
       </Form>

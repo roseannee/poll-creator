@@ -21,7 +21,7 @@ export function NavMobile({ items }: NavProps) {
   return (
     <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
       <SheetTrigger asChild className="md:hidden">
-        <Button variant="ghost" size={"icon"}>
+        <Button variant="ghost" size="icon">
           <Icons.menu />
         </Button>
       </SheetTrigger>

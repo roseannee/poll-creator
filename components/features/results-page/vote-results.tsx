@@ -1,9 +1,9 @@
 "use client"
 
 import { Option, Vote } from "@prisma/client"
-import { Progress } from "@/components/ui/progress"
 
 import { cn } from "@/lib/utils"
+import { Progress } from "@/components/ui/progress"
 import { Icons } from "@/components/shared/icons"
 import Typography from "@/components/typography"
 
@@ -81,7 +81,7 @@ function VotePercentage({
 }) {
   return (
     <Typography
-      affects={"removePMargin"}
+      affects="removePMargin"
       className={cn(
         "items-center font-semibold",
         isMobile ? "flex md:hidden" : "hidden md:flex"

@@ -36,7 +36,7 @@ export function SendChoiceButton({ pollId }: { pollId: string }) {
         body: JSON.stringify(values),
       })
 
-      router.push(`/${pollId}/result`)
+      router.push(`/${pollId}/results`)
     } catch (error) {
       errorToast({
         title: "Uh oh! Something went wrong.",
@@ -55,7 +55,7 @@ export function SendChoiceButton({ pollId }: { pollId: string }) {
         disabled={isLoading || optionId === -1}
         isLoading={isLoading}
       >
-        Send your choice
+        Submit your vote
       </LoadingButton>
 
       <Toaster />

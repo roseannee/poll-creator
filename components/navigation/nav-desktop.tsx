@@ -14,8 +14,8 @@ export interface NavProps {
 export function NavDesktop({ items }: NavProps) {
   return (
     <div className="flex gap-6 md:gap-10">
-      <Link href="/" className="flex items-center space-x-2">
-        <Icons.logo className="size-6" />
+      <Link href="/create" className="flex items-center space-x-2">
+        <Icons.logo />
         <span className="inline-block font-bold">{siteConfig.name}</span>
       </Link>
 
