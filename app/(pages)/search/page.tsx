@@ -1,4 +1,5 @@
 import { Suspense } from "react"
+import { Metadata } from "next"
 
 import { fetchPollsPages } from "@/lib/data"
 import { PollsTable } from "@/components/features/search-page/polls-table"
@@ -7,6 +8,10 @@ import { TablePagination } from "@/components/features/search-page/table-paginat
 import { TableSkeleton } from "@/components/features/search-page/table-skeleton"
 import { CreatePollButton } from "@/components/shared/create-poll-button"
 import { Icons } from "@/components/shared/icons"
+
+export const metadata: Metadata = {
+  title: "Search for polls",
+}
 
 export default async function SearchPage({
   searchParams,
@@ -27,7 +32,7 @@ export default async function SearchPage({
         <Search />
 
         <CreatePollButton replaceMobileWithIcon variant="default">
-          Create poll {<Icons.add className="ml-2" />}
+          New poll {<Icons.add className="ml-2" />}
         </CreatePollButton>
       </div>
 

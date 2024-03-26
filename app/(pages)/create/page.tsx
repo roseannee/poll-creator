@@ -1,3 +1,5 @@
+import { Metadata } from "next"
+
 import {
   Card,
   CardContent,
@@ -7,15 +9,19 @@ import {
 } from "@/components/ui/card"
 import { CreatePollForm } from "@/components/features/create-page/create-poll-form"
 
+export const metadata: Metadata = {
+  title: "Create poll",
+}
+
 export default function CreatePage() {
   return (
     // TODO maybe 'flex min-h-screen-with-header items-center'
     <section className="container py-4 md:py-10">
       <Card className="mx-auto w-full max-w-md">
         <CardHeader>
-          <CardTitle>Poll creator</CardTitle>
+          <CardTitle>Create a poll</CardTitle>
           <CardDescription>
-            Create a new survey in a few seconds.
+            Effortlessly craft your own poll just in seconds.
           </CardDescription>
         </CardHeader>
         <CardContent>

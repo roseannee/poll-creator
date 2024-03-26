@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import Link from "next/link"
 
 import { cn } from "@/lib/utils"
@@ -14,17 +15,21 @@ import { CopyToClipboard } from "@/components/features/share-page/copy-to-clipbo
 import { CreatePollButton } from "@/components/shared/create-poll-button"
 import { Icons } from "@/components/shared/icons"
 
+export const metadata: Metadata = {
+  title: "Share poll",
+}
+
 export default function SharePage({ params }: { params: { id: string } }) {
   return (
     <section className="container flex min-h-screen-with-header flex-col items-center justify-center space-y-8 py-4 md:py-10">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="flex items-center">
-            Created <Icons.party className="ml-2 text-amber-500" />
+            Created! <Icons.party className="ml-2 text-amber-500" />
           </CardTitle>
           <CardDescription className="text-balance">
-            Your survey has been successfully created. Copy the link below to
-            share it.
+            Share your poll with others by copying the link below and sending it
+            to your friends.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -36,12 +41,12 @@ export default function SharePage({ params }: { params: { id: string } }) {
             rel="noreferrer"
             className={cn("w-full", buttonVariants())}
           >
-            Open poll
+            View poll
           </Link>
         </CardFooter>
       </Card>
 
-      <CreatePollButton>Make another poll</CreatePollButton>
+      <CreatePollButton>Create a new poll</CreatePollButton>
     </section>
   )
 }
