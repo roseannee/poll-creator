@@ -1,43 +1,44 @@
 import { unstable_noStore as noStore } from "next/cache"
+import { notFound } from "next/navigation"
 import prisma from "@/prisma/client"
 
 export async function fetchPollById(id: string) {
   noStore()
 
-  try {
-    const poll = await prisma.poll.findUnique({
-      where: {
-        id,
-      },
-      include: {
-        options: true,
-      },
-    })
+  const poll = await prisma.poll.findUnique({
+    where: {
+      id,
+    },
+    include: {
+      options: true,
+    },
+  })
 
-    return poll
-  } catch (error) {
-    throw new Error(`Failed to fetch poll: ${error}`)
+  if (!poll) {
+    notFound()
   }
+
+  return poll
 }
 
 export async function fetchPollByIdWithVotes(id: string) {
   noStore()
 
-  try {
-    const poll = await prisma.poll.findUnique({
-      where: {
-        id,
-      },
-      include: {
-        options: true,
-        votes: true,
-      },
-    })
+  const poll = await prisma.poll.findUnique({
+    where: {
+      id,
+    },
+    include: {
+      options: true,
+      votes: true,
+    },
+  })
 
-    return poll
-  } catch (error) {
-    throw new Error(`Failed to fetch poll: ${error}`)
+  if (!poll) {
+    notFound()
   }
+
+  return poll
 }
 
 const ITEMS_PER_PAGE = 5
