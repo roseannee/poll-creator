@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import Link from "next/link"
 
 import { fetchPollByIdWithVotes } from "@/lib/data"
@@ -6,15 +7,19 @@ import { buttonVariants } from "@/components/ui/button"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { VoteResults } from "@/components/features/result-page/vote-results"
+import { VoteResults } from "@/components/features/results-page/vote-results"
 import { CreatePollButton } from "@/components/shared/create-poll-button"
+import { RefreshButton } from "@/components/shared/refresh-button"
 
-export default async function ResultPage({
+export const metadata: Metadata = {
+  title: "Poll results",
+}
+
+export default async function ResultsPage({
   params,
 }: {
   params: { id: string }
@@ -23,13 +28,14 @@ export default async function ResultPage({
 
   return (
     <section className="container flex min-h-screen-with-header flex-col items-center justify-center space-y-8 py-4 md:py-10">
-      <Card className="w-full max-w-md">
+      <Card className="relative w-full max-w-md">
         <CardHeader>
-          <CardDescription>The question of this poll is:</CardDescription>
-          <CardTitle>{poll!.question}</CardTitle>
+          <CardTitle className="max-w-[350px] text-balance">
+            {poll.question}
+          </CardTitle>
         </CardHeader>
         <CardContent>
-          <VoteResults options={poll!.options} votes={poll!.votes} />
+          <VoteResults options={poll.options} votes={poll!.votes} />
         </CardContent>
         <CardFooter>
           <Link
@@ -37,12 +43,14 @@ export default async function ResultPage({
             rel="noreferrer"
             className={cn("w-full", buttonVariants({ variant: "secondary" }))}
           >
-            Cast your vote
+            Take this poll
           </Link>
         </CardFooter>
+
+        <RefreshButton />
       </Card>
 
-      <CreatePollButton>Make your own poll</CreatePollButton>
+      <CreatePollButton>Create a new poll</CreatePollButton>
     </section>
   )
 }
