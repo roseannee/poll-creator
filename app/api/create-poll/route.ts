@@ -4,12 +4,6 @@ import prisma from "@/prisma/client"
 
 import { PollSchema } from "@/lib/definitions"
 
-function sleep(time: number) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, time)
-  })
-}
-
 export async function POST(request: NextRequest) {
   noStore()
 
@@ -25,8 +19,6 @@ export async function POST(request: NextRequest) {
         },
       },
     })
-
-    await sleep(2000)
 
     return NextResponse.json(result)
   } catch (error) {
