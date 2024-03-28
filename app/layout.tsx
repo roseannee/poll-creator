@@ -1,6 +1,8 @@
 import "@/styles/globals.css"
 
 import { Metadata, Viewport } from "next"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { GeistSans } from "geist/font/sans"
 
 import { siteConfig } from "@/config/site"
@@ -47,7 +49,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <div className="relative flex min-h-screen flex-col">
                 <SiteHeader />
-                <div className="flex-1">{children}</div>
+                <div className="flex-1">
+                  {children}
+                  <Analytics />
+                  <SpeedInsights />
+                </div>
               </div>
             </ThemeProvider>
           </Providers>
