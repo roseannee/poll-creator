@@ -14,3 +14,19 @@ export const item: Variants = {
     x: 20,
   },
 }
+
+interface ProgressVariantsConfig {
+  x: number | null | undefined
+}
+type ProgressVariantsType = (config: ProgressVariantsConfig) => Variants
+
+export const progressVariants: ProgressVariantsType = (config) => {
+  return {
+    hidden: {
+      transform: "translateX(-100%)",
+    },
+    visible: {
+      transform: `translateX(-${100 - (config.x || 0)}%)`,
+    },
+  }
+}

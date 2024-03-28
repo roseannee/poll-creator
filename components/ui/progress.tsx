@@ -1,7 +1,13 @@
+"use client"
+
 import * as React from "react"
 import * as ProgressPrimitive from "@radix-ui/react-progress"
+import { m } from "framer-motion"
 
+import { progressVariants } from "@/lib/framer-variants"
 import { cn } from "@/lib/utils"
+
+const MIndicator = m(ProgressPrimitive.Indicator)
 
 const Progress = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Root>,
@@ -15,9 +21,11 @@ const Progress = React.forwardRef<
     )}
     {...props}
   >
-    <ProgressPrimitive.Indicator
+    <MIndicator
+      initial="hidden"
+      animate="visible"
+      variants={progressVariants({ x: value })}
       className="size-full flex-1 bg-primary transition-all"
-      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
     />
   </ProgressPrimitive.Root>
 ))
