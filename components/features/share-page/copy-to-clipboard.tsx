@@ -31,7 +31,7 @@ export function CopyToClipboard({ pollId }: { pollId: string }) {
     <div className="flex space-x-1 md:space-x-2">
       <Input value={pollLink} readOnly />
 
-      <Button variant="outline" size="icon" onClick={copyLink}>
+      <Button variant="ghost" size="icon" onClick={copyLink}>
         <Icons.copy />
       </Button>
 

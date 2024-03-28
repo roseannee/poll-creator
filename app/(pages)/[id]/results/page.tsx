@@ -30,7 +30,7 @@ export default async function ResultsPage({
     <section className="container flex min-h-screen-with-header flex-col items-center justify-center space-y-8 py-4 md:py-10">
       <Card className="relative w-full max-w-md">
         <CardHeader>
-          <CardTitle className="max-w-[350px] text-balance">
+          <CardTitle className="max-w-[calc(100%_-_40px)] text-balance">
             {poll.question}
           </CardTitle>
         </CardHeader>
@@ -43,7 +43,7 @@ export default async function ResultsPage({
             rel="noreferrer"
             className={cn("w-full", buttonVariants({ variant: "secondary" }))}
           >
-            Take this poll
+            Cast your vote
           </Link>
         </CardFooter>
 

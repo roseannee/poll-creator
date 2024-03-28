@@ -46,7 +46,7 @@ export function CreatePollForm() {
     },
   })
 
-  const { watch, setValue, handleSubmit, control, reset } = form
+  const { watch, setValue, handleSubmit, control } = form
   const watchedOptions = watch("options")
 
   const handleAddOption = (
@@ -143,12 +143,12 @@ export function CreatePollForm() {
                             {...field}
                           />
                           <Button
-                            variant="outline"
+                            variant="ghost"
                             size="icon"
                             onClick={(event) =>
                               handleRemoveOption(index, event)
                             }
-                            disabled={watchedOptions.length <= 2}
+                            disabled={watchedOptions.length <= 2 || isLoading}
                           >
                             <Icons.delete />
                           </Button>
@@ -166,7 +166,7 @@ export function CreatePollForm() {
             variant="outline"
             className="!mt-4"
             onClick={(event) => handleAddOption(event)}
-            disabled={watchedOptions.length >= 5}
+            disabled={watchedOptions.length >= 5 || isLoading}
           >
             <Icons.add className="mr-2" />
             Add option
@@ -185,7 +185,7 @@ export function CreatePollForm() {
             disabled={isLoading}
             isLoading={isLoading}
           >
-            Create poll
+            Confirm
           </LoadingButton>
         </form>
       </Form>

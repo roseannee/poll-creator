@@ -28,8 +28,7 @@ export default function SharePage({ params }: { params: { id: string } }) {
             Created! <Icons.party className="ml-2 text-amber-500" />
           </CardTitle>
           <CardDescription className="text-balance">
-            Share your poll with others by copying the link below and sending it
-            to your friends.
+            Poll created successfully! Copy the link below to share it.
           </CardDescription>
         </CardHeader>
         <CardContent>

@@ -3,7 +3,6 @@ import { NavDesktop } from "@/components/navigation/nav-desktop"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 import { NavMobile } from "./navigation/nav-mobile"
-import { CreatePollButton } from "./shared/create-poll-button"
 
 export function SiteHeader() {
   return (
@@ -13,12 +12,7 @@ export function SiteHeader() {
 
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
-            <CreatePollButton replaceMobileWithIcon variant="ghost">
-              Quick poll
-            </CreatePollButton>
-
             <ThemeToggle />
-
             <NavMobile items={siteConfig.mainNav} />
           </nav>
         </div>

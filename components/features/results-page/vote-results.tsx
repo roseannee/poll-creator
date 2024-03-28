@@ -91,7 +91,11 @@ function VotePercentage({
         <Icons.party className="mr-2 text-amber-500" />
       )}
 
-      {totalVotesCount > 0 ? `${votePercentage.toFixed(0)}%` : `0%`}
+      {totalVotesCount > 0
+        ? totalVotesCount >= 50
+          ? `${votePercentage.toFixed(1)}%`
+          : `${votePercentage.toFixed(0)}%`
+        : `0%`}
     </Typography>
   )
 }

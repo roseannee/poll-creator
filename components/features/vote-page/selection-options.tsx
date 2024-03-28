@@ -30,11 +30,9 @@ export function SelectionOptions({ options }: { options: Option[] }) {
   }, [searchParams, optionId, router])
 
   const handleValueChange = (newOption: string) => {
-    if (!sendingVote) {
-      const selectedOption = options.find((opt) => opt.option === newOption)
-      if (selectedOption) {
-        handleOptionSelect(selectedOption.id, selectedOption.option)
-      }
+    const selectedOption = options.find((opt) => opt.option === newOption)
+    if (selectedOption) {
+      handleOptionSelect(selectedOption.id, selectedOption.option)
     }
   }
 
@@ -49,6 +47,7 @@ export function SelectionOptions({ options }: { options: Option[] }) {
       size="lg"
       value={option}
       onValueChange={handleValueChange}
+      disabled={sendingVote}
       className="flex flex-col"
     >
       {options.map(({ option, id }) => (
