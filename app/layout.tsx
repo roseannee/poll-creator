@@ -17,6 +17,16 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  metadataBase: siteConfig.metadataBase,
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: {
+      url: siteConfig.openGraph.images.url,
+      width: siteConfig.openGraph.images.width,
+      height: siteConfig.openGraph.images.height,
+    },
+  },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
