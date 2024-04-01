@@ -28,6 +28,8 @@ export default function Error({
           Try again
         </Button>
       </div>
+
+      <title>An error occurred | Poll Creator</title>
     </section>
   )
 }

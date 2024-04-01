@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import Link from "next/link"
 
+import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import {
@@ -16,7 +17,7 @@ import { CreatePollButton } from "@/components/shared/create-poll-button"
 import { Icons } from "@/components/shared/icons"
 
 export const metadata: Metadata = {
-  title: "Share poll",
+  title: siteConfig.pages.share.name,
 }
 
 export default function SharePage({ params }: { params: { id: string } }) {

@@ -1,6 +1,7 @@
 import { Suspense } from "react"
 import { Metadata } from "next"
 
+import { siteConfig } from "@/config/site"
 import { fetchPollsPages } from "@/lib/data"
 import { PollsTable } from "@/components/features/search-page/polls-table"
 import { Search } from "@/components/features/search-page/search"
@@ -10,7 +11,7 @@ import { CreatePollButton } from "@/components/shared/create-poll-button"
 import { Icons } from "@/components/shared/icons"
 
 export const metadata: Metadata = {
-  title: "Search for polls",
+  title: siteConfig.pages.search.name,
 }
 
 export default async function SearchPage({

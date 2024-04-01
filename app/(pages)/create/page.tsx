@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 
+import { siteConfig } from "@/config/site"
 import {
   Card,
   CardContent,
@@ -10,7 +11,7 @@ import {
 import { CreatePollForm } from "@/components/features/create-page/create-poll-form"
 
 export const metadata: Metadata = {
-  title: "Create poll",
+  title: siteConfig.pages.create.name,
 }
 
 export default function CreatePage() {

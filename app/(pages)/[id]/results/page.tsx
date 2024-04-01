@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import Link from "next/link"
 
-import { fetchPollByIdWithVotes } from "@/lib/data"
+import { fetchPollByIdWithVotes, fetchPollQuestionById } from "@/lib/data"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import {
@@ -15,15 +15,17 @@ import { VoteResults } from "@/components/features/results-page/vote-results"
 import { CreatePollButton } from "@/components/shared/create-poll-button"
 import { RefreshButton } from "@/components/shared/refresh-button"
 
-export const metadata: Metadata = {
-  title: "Poll results",
+type Props = { params: { id: string } }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const pollQuestion = await fetchPollQuestionById(params.id)
+
+  return {
+    title: pollQuestion?.question,
+  }
 }
 
-export default async function ResultsPage({
-  params,
-}: {
-  params: { id: string }
-}) {
+export default async function ResultsPage({ params }: Props) {
   const poll = await fetchPollByIdWithVotes(params.id)
 
   return (

@@ -14,7 +14,7 @@ import { SiteHeader } from "@/components/site-header"
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   metadataBase: siteConfig.metadataBase,
@@ -29,8 +29,6 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
   },
 }
 

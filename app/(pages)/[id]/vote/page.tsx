@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 
-import { fetchPollById } from "@/lib/data"
+import { fetchPollById, fetchPollQuestionById } from "@/lib/data"
 import {
   Card,
   CardContent,
@@ -12,11 +12,17 @@ import { SelectionOptions } from "@/components/features/vote-page/selection-opti
 import { SendChoiceButton } from "@/components/features/vote-page/send-choice-button"
 import { Icons } from "@/components/shared/icons"
 
-export const metadata: Metadata = {
-  title: "Vote on poll",
+type Props = { params: { id: string } }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const pollQuestion = await fetchPollQuestionById(params.id)
+
+  return {
+    title: pollQuestion?.question,
+  }
 }
 
-export default async function VotePage({ params }: { params: { id: string } }) {
+export default async function VotePage({ params }: Props) {
   const poll = await fetchPollById(params.id)
 
   return (

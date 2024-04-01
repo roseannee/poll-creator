@@ -21,6 +21,19 @@ export async function fetchPollById(id: string) {
   return poll
 }
 
+export async function fetchPollQuestionById(id: string) {
+  noStore()
+
+  const pollQuestion = await prisma.poll.findUnique({
+    select: { question: true },
+    where: {
+      id,
+    },
+  })
+
+  return pollQuestion
+}
+
 export async function fetchPollByIdWithVotes(id: string) {
   noStore()
 

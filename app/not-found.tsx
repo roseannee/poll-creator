@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import Link from "next/link"
 
 import { buttonVariants } from "@/components/ui/button"
@@ -22,6 +23,8 @@ export default function NotFound() {
           Return Home
         </Link>
       </div>
+
+      <title>Poll Not Found | Poll Creator</title>
     </section>
   )
 }
