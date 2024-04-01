@@ -39,13 +39,13 @@ git clone https://github.com/roseannee/poll-creator.git
 cd poll-creator
 ```
 
-2. Install dependencies:
+3. Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. Run the app:
+4. Run the app:
 
 ```bash
 npm start
