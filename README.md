@@ -15,11 +15,30 @@ Poll Creator is a tool made to simplify the creation sharing and analysis of pol
 Here are some highlights of what Poll Creator offers:
 
 - **Create Polls**: Craft polls with ease, customize the number of answer options and adjust the questions to fit your needs.
+
+![create-poll](https://github.com/user-attachments/assets/81df2715-0761-46d1-9230-717a83f9d6da)
+
 - **Share Polls**: Share polls with others and gather responses in real-time.
+
+![share-poll](https://github.com/user-attachments/assets/421319a3-88af-4cd7-bfb2-dd583749ad09)
+
 - **Vote and Monitor Results**: Participate in polls by casting your vote and keep track of results as they unfold.
+
+![vote](https://github.com/user-attachments/assets/6181a24e-6fbb-48e0-bc40-fd14e0a1db18)
+
 - **Browse Polls**: Efficiently navigate through a table of all created polls, making it simple to find and engage with specific ones.
+
+![search-poll](https://github.com/user-attachments/assets/2990ec0f-93e0-4230-aa58-183d3c0f9796)
+
 - **Theme Customization**: Personalize your experience by changing the theme of the application to suit your preferences.
+
+![light-theme](https://github.com/user-attachments/assets/226f7d3c-4326-4ed1-9c50-7c3a944e6215)
+
 - **Cross-Platform Compatibility**: Access the app from any device, whether you're on your desktop, tablet, or smartphone.
+
+<p align="center" width="100%">
+    <img width="33%" src="https://github.com/user-attachments/assets/280066b1-8b47-436f-ac9d-2e8382e5fb5c"> 
+</p>
 
 ## How to use
 
